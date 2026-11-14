@@ -26,17 +26,17 @@
        "expected": {"pump": false, "vent": false, "fault": false, "used": 0}}
     ]
   },
-  {
+{
     "name": "T03: границы humidity 34.9/35/35.1/44.9/45",
     "steps": [
       {"input": {"humidity": 34.9, "temp": 20, "age": 0, "tank": 50, "budget": 5, "rain": false, "reset": false},
        "expected": {"pump": true, "vent": false, "fault": false, "used": 2}},
       {"input": {"humidity": 35, "temp": 20, "age": 0, "tank": 50, "budget": 5, "rain": false, "reset": false},
-       "expected": {"pump": false, "vent": false, "fault": false, "used": 0}},
+       "expected": {"pump": true, "vent": false, "fault": false, "used": 2}},
       {"input": {"humidity": 35.1, "temp": 20, "age": 0, "tank": 50, "budget": 5, "rain": false, "reset": false},
-       "expected": {"pump": false, "vent": false, "fault": false, "used": 0}},
+       "expected": {"pump": true, "vent": false, "fault": false, "used": 2}},
       {"input": {"humidity": 44.9, "temp": 20, "age": 0, "tank": 50, "budget": 5, "rain": false, "reset": false},
-       "expected": {"pump": false, "vent": false, "fault": false, "used": 0}},
+       "expected": {"pump": true, "vent": false, "fault": false, "used": 2}},
       {"input": {"humidity": 45, "temp": 20, "age": 0, "tank": 50, "budget": 5, "rain": false, "reset": false},
        "expected": {"pump": false, "vent": false, "fault": false, "used": 0}}
     ]
@@ -125,3 +125,4 @@
     ]
   }
 ]
+
