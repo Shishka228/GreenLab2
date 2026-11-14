@@ -1,0 +1,38 @@
+[
+  {
+    "name": "T11: детерминизм — повтор сценария T01",
+    "steps": [
+      {"input": {"humidity": 20, "temp": 20, "age": 0, "tank": 50, "budget": 5, "rain": false, "reset": false},
+       "expected": {"pump": true, "vent": false, "fault": false, "used": 2}},
+      {"input": {"humidity": 50, "temp": 20, "age": 0, "tank": 50, "budget": 5, "rain": false, "reset": false},
+       "expected": {"pump": false, "vent": false, "fault": false, "used": 0}}
+    ]
+  },
+  {
+    "name": "T12: M4/M7/M8 — границы fresh=30, cold=3, lowTank=10",
+    "steps": [
+      {"input": {"humidity": 20, "temp": 20, "age": 30, "tank": 50, "budget": 5, "rain": false, "reset": false},
+       "expected": {"pump": true, "vent": false, "fault": false, "used": 2}},
+      {"input": {"humidity": 20, "temp": 3, "age": 0, "tank": 50, "budget": 5, "rain": false, "reset": false},
+       "expected": {"pump": false, "vent": false, "fault": false, "used": 0}},
+      {"input": {"humidity": 20, "temp": 20, "age": 0, "tank": 10, "budget": 5, "rain": false, "reset": false},
+       "expected": {"pump": true, "vent": false, "fault": false, "used": 2}}
+    ]
+  },
+  {
+    "name": "T13: pumpFits=false — budget=0 при запросе насоса",
+    "steps": [
+      {"input": {"humidity": 20, "temp": 20, "age": 0, "tank": 50, "budget": 0, "rain": false, "reset": false},
+       "expected": {"pump": false, "vent": false, "fault": false, "used": 0}}
+    ]
+  },
+  {
+    "name": "T14: ventStop=true — был ON, temp<=26",
+    "steps": [
+      {"input": {"humidity": 50, "temp": 30, "age": 0, "tank": 50, "budget": 5, "rain": false, "reset": false},
+       "expected": {"pump": false, "vent": true, "fault": false, "used": 3}},
+      {"input": {"humidity": 50, "temp": 20, "age": 0, "tank": 50, "budget": 5, "rain": false, "reset": false},
+       "expected": {"pump": false, "vent": false, "fault": false, "used": 0}}
+    ]
+  }
+]
